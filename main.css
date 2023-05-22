@@ -1,7 +1,85 @@
+
 .subheading {
   font-weight: 600;
 }
 
 .date {
   min-width: 18rem;
+}
+
+.text1{
+  color: darkred;
+  text-shadow: 5px 5px 5px gray;
+  font-size: 40px;
+
+}
+.text2{
+  color: darkred;
+  text-shadow: 5px 5px 5px gray;
+  font-size: 48px;
+
+}
+button{
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+button:hover{
+  background-color: darkred;
+  color: white;
+  border: none;
+}
+
+.skusenosti{
+  font-size: large;
+}
+.skusenosti2{
+  font-size: large;
+  position: relative;
+  bottom: 160px;
+  left: 300px;
+}
+
+.obr1{
+  position: relative;
+  left: 100px;
+}
+
+.obr2{
+  position: relative;
+  left: 170px;
+}
+
+.obr3{
+  position: relative;
+  left: 170px;
+  top: 10px;
+}
+
+.obr4{
+  position: relative;
+  left: 800px;
+
+}
+.text{
+  position: relative;
+  bottom: 20px;
+}
+.text4{
+  color: black;
+  position: relative;
+  bottom: 20px;
+}
+.subheading{
+  position: relative;
+  bottom: 65px;
+
+}
+.text5{
+  position: relative;
+  bottom: 25px;
+}
+a{
+  color: darkred;
 }
