@@ -50,7 +50,7 @@
       </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
       <section id="o_mne">
         <div class="jumbotron">
           <h1 class="text2">Miriam Výrosteková</h1>
@@ -86,7 +86,7 @@
         <p>
           ŠKOLA: Strednká priemyselná škola Technická <br />
           ODBOR: Technické lýceum - programovanie. <br>
-          <a href="https://strojsnv.edupage.org/">Stredná priemyselná škola Technická</a>
+          <a class="odkaz" href="https://strojsnv.edupage.org/">Stredná priemyselná škola Technická</a>
         </p>
         <img class="obr3" src="obr/spst.jpg" alt="spst" width="220px
         " height="80px
@@ -97,18 +97,18 @@
       <section id="schopnosti">
         <h2 class="text1">Schopnosti</h2>
         <div class="skusenosti">
-          HTML  ☆☆☆☆<br>
-          CSS  ☆☆☆☆<br>
-          JavaScript  ☆<br>
-          React.js  ☆<br>
-          MySql  ☆☆<br>
-          WordPress  ☆☆☆<br>
+          HTML <b class="hviezdy"> ☆☆☆☆</b><br>
+          CSS <b class="hviezdy">☆☆☆☆</b> <br>
+          JavaScript <b class="hviezdy">☆</b> <br>
+          React.js <b class="hviezdy">☆</b> <br>
+          MySql <b class="hviezdy">☆☆</b> <br>
+          WordPress <b class="hviezdy">☆☆☆</b>  <br>
         <p class="skusenosti2">
-          C  ☆☆<br>
-          PYTHON  ☆☆☆<br>
-          Microsoft Word  ☆☆☆☆☆<br>
-          Microsoft Excel  ☆☆☆☆☆<br>
-          Microsoft PowerPoint  ☆☆☆☆☆<br>
+          C <b class="hviezdy">☆☆</b> <br>
+          PYTHON <b class="hviezdy">☆☆☆</b> <br>
+          Microsoft Word <b class="hviezdy">☆☆☆☆☆</b> <br>
+          Microsoft Excel <b class="hviezdy">☆☆☆☆☆</b> <br>
+          Microsoft PowerPoint <b class="hviezdy">☆☆☆☆☆</b> <br>
         </p>
       </div>
       </section>
@@ -127,8 +127,16 @@
         <h2 class="text1">Kontakt</h2>
         <form>
           <div class="form-group">
+            <label for="meno">Meno:</label>
+            <input type="meno" class="form-control" id="meno">
+            <label for="priezisko">Priezvisko:</label>
+            <input type="priezisko" class="form-control" id="priezisko">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" required />
+            <input type="email" class="form-control" id="email" required /> <br>
+            <input type="radio" id="muz" name="pohlavie" value="muz">
+            <label for="pohlavie">muž</label><br>
+            <input type="radio" id="žena" name="pohlavie" value="žena">
+            <label for="pohlavie">žena</label>
           </div>
           <div class="form-group">
             <label for="msg">Správa:</label>

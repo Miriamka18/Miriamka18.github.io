@@ -1,10 +1,20 @@
 
+body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  
+}
 .subheading {
   font-weight: 600;
 }
-
-.date {
-  min-width: 18rem;
+.navbar {
+  background: dark;
+  position: fixed;
+  top: 0%;
+  /*background: rgb(85,19,26);
+  background: linear-gradient(90deg, rgba(85,19,26,1) 0%, rgba(131,2,31,1) 29%, rgba(96,3,23,1) 53%, rgba(147,12,41,1) 72%, rgba(217,12,57,1) 96%, rgba(241,1,51,1) 100%);*/
+  background: rgb(85,19,26);
+  background: linear-gradient(90deg, rgba(85,19,26,1) 0%, rgba(131,2,31,1) 26%, rgba(98,36,49,1) 43%, rgba(91,12,30,1) 62%, rgba(124,19,41,1) 84%, rgba(217,12,57,1) 99%, rgba(241,1,51,1) 100%);
 }
 
 .text1{
@@ -14,22 +24,50 @@
 
 }
 .text2{
-  color: darkred;
-  text-shadow: 5px 5px 5px gray;
-  font-size: 48px;
+    position: relative;
+    top: 20px;
+    font-weight: 600;
+    background: -webkit-linear-gradient(#2b1d1d, #800303);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 6px 5px 5px gray;
+    font-size: 48px;
 
 }
+ 
+
 button{
-  background-color: black;
-  color: white;
-  border-radius: 10px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 20px;
   border: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow:3px 3px 3px darkred;
 }
-button:hover{
-  background-color: darkred;
-  color: white;
-  border: none;
+
+button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #212020 0, #b30a0a 50%, #212020 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  z-index: -1;
 }
+
+button:hover::after {
+  transform: translateX(0);
+}
+
 
 .skusenosti{
   font-size: large;
@@ -80,6 +118,13 @@ button:hover{
   position: relative;
   bottom: 25px;
 }
-a{
+
+.hviezdy{
   color: darkred;
 }
+.odkaz{
+  text-decoration: none;
+  color: darkred;
+  cursor: pointer;
+}
+
