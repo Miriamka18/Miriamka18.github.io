@@ -2,59 +2,76 @@ $(document).ready(function () {
     $("form").submit(handleSubmit);
   });
   
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    console.log("Input Meno:",$('#meno').val());
+    console.log("Input Priezvisko:",$('#priezvisko').val());
+    console.log("Input Správa:",$('#msg').val());
+    console.log("Input E-mail:",$('#email').val());
+
+    let data = {
+      systemEmail: 'miriam.vyrostekova@gmail.com',
+      contactEmail: $('#email').val(),
+      message: $('#msg').val(),
+    };
+
+    let response = await fetch('https://emailsenderitweek.azurewebsites.net/api/ContactForm', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(data),
+  });
+
   
-    var msg = $('#msg').val();
-    var email = $('#email').val();
-    
-    console.log(msg);
+  let prevTest = $("sbtn").text();
+  if (response.status === 200) {
+    const res = await response.json();
+    $("sbtn").text(res);
+    await new Promise(r => setTimeout(r, 2500));
+    $("sbtn").text(prevTest);
+    if (res === "Email bol odoslaný") document.getElementById("contactForm").reset();
   }
+  else{
+    $("sbtn").text("Odoslanie zlyhalo");
+    await new Promise(r => setTimeout(r, 2500));
+    $("sbtn").text(prevTest)
+  }
+}
 
 
-const form = document.querySelector('form');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
 
-  const firstName = document.getElementById('meno').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('msg').value;
+function MathQuestion() {
+  while (true) {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
 
-  const requestBody = {
-    systemEmail: 'miriam.vyrostekova@gmail.com',
-    contactEmail: email,
-    message: message
-  };
+    const correctAnswer = num1 + num2;
 
-  fetch('https://emailsenderitweek.azurewebsites.net/api/ContactForm', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(requestBody)
-  })
-    .then(response => {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw new Error('Error: ' + response.status);
-      }
-    })
-    .then(data => {
-     
-      if (data === 'Vstupná systémová e-mailová adresa nie je platná') {
-      
-      } else if (data === 'Zadaná kontaktná e-mailová adresa nie je platná') {
-      
-      } else if (data === 'Správa je prázdna, váš požiadavok nebol odoslaný') {
-     
-      } else if (data === 'E-mail bol odoslaný') {
-        
-      }
-    })
-    .catch(error => {
-      
-      console.error('Error:', error);
-    });
+    const userAnswer = prompt(`Vypočítaj:  ${num1} + ${num2}?`);
+
+    if (parseInt(userAnswer) === correctAnswer) {
+      alert('Správna odpoveď. Nie si robot.  ˶ᵔ ᵕ ᵔ˶');
+      break; 
+    } else {
+      alert('Nesprávna odpoveď. Skús ešte raz  • ᴖ • ');
+    }
+  }
+}
+
+MathQuestion();
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  form.style.display = "none";
 });
+
+
+
+
+
