@@ -42,7 +42,6 @@ $(document).ready(function () {
 
 
 
-
 function MathQuestion() {
   while (true) {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -50,7 +49,7 @@ function MathQuestion() {
 
     const correctAnswer = num1 + num2;
 
-    const userAnswer = prompt(`Vypočítaj:  ${num1} + ${num2}?`);
+    const userAnswer = prompt(`Vypočítaj: ${num1} + ${num2}?`);
 
     if (parseInt(userAnswer) === correctAnswer) {
       alert('Správna odpoveď. Nie si robot.  ˶ᵔ ᵕ ᵔ˶');
@@ -61,16 +60,15 @@ function MathQuestion() {
   }
 }
 
-MathQuestion();
-
 const form = document.getElementById("contactForm");
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
+  MathQuestion();
+
   form.style.display = "none";
 });
-
 
 
 
